@@ -7,10 +7,11 @@
 body {
   background-color: #e7eef0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-family: var(--font-main);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .section-title {
@@ -38,6 +39,30 @@ body {
   color: #108bae;
 }
 
+.swiper-teachers {
+  margin-top: 40px;
+}
+
+.swiper {
+  width: 1320px;
+}
+
+.swiper-slide {
+  background: #e7eef0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 1320px;
+}
+
+.swiper-buttons > i {
+  color: #108bae;
+  font-size: 50px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
 /* HEADER */
 
 .main-header {
@@ -50,7 +75,7 @@ body {
 }
 
 .header-logo img {
-  width: 45px;
+  width: 140px;
   height: 48px;
   padding: 8px;
 }
@@ -88,6 +113,12 @@ body {
   color: #333;
   font-weight: 600;
   font-size: 16px;
+}
+
+.header-nav a:hover,
+.header-nav a:focus {
+  color: #074e62;
+  background-color: transparent; /* если не нужен фон */
 }
 
 #header-number {
@@ -158,6 +189,10 @@ body {
   line-height: 100%;
   letter-spacing: -4%;
   text-transform: uppercase;
+}
+
+.promo-btn:hover {
+  transform: scale(1.2);
 }
 
 .promo-footer {
@@ -237,6 +272,7 @@ h3 {
   font-weight: 590;
   font-size: 24px;
   line-height: 120%;
+  margin-right: 5px;
 }
 
 .programs-card-subtitle {
@@ -244,7 +280,6 @@ h3 {
   font-size: 16px;
   line-height: 140%;
   margin: 0;
-  margin-left: 5px;
 }
 
 .programs-card-text {
@@ -265,6 +300,10 @@ h3 {
   line-height: 100%;
   letter-spacing: -2%;
   text-transform: uppercase;
+}
+
+.programs-card-button:hover {
+  transform: scale(1.1);
 }
 
 /* BENEFITS */
@@ -297,6 +336,10 @@ h3 {
 
 .benefits-card-logo {
   width: 372px;
+}
+
+.benefits-card-logo img {
+  width: 73px;
 }
 
 .benefits-card-info {
@@ -336,8 +379,82 @@ h3 {
 .method-card {
   width: 426px;
   height: 280px;
+  border-radius: 16px;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.method-content-blue {
+  padding: 15px 30px 15px 30px;
+  margin: 20px 0 0 20px;
+  width: fit-content;
+  border-radius: 40px;
+  font-size: 24px;
+  font-weight: 590;
+  background-color: #108bae;
+  color: #ffffff;
+  transition: width 0.7s ease, height 0.7s ease, background-color 0.7s ease,
+    border-radius 0.7s ease, color 0.7s ease, padding 0.7s ease;
+}
+
+.method-content-white {
+  padding: 15px 30px 15px 30px;
+  margin: 20px 0 0 20px;
+  width: fit-content;
+  border-radius: 40px;
+  font-size: 24px;
+  font-weight: 590;
+  background-color: #ffffff;
+  transition: width 0.7s ease, height 0.7s ease, background-color 0.7s ease,
+    border-radius 0.7s ease, color 0.7s ease, padding 0.7s ease;
+}
+
+.method-title {
+  font-size: 24px;
+  font-weight: 590;
+  line-height: 100%;
+  letter-spacing: -2%;
+  margin: 0;
+  transition: color 0.7s ease;
+}
+
+.method-text {
+  display: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.03rem;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.7s ease, max-height 0.7s ease;
+}
+
+.method-card:hover .method-content-blue {
+  width: 81%;
+  height: 72%;
+  background-color: #108bae;
+  border-radius: 10px;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.method-card:hover .method-content-white {
+  width: 81%;
+  height: 72%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.method-card:hover .method-text {
+  display: block;
+  margin-top: 10px;
+  opacity: 1;
+  max-height: 300px;
 }
 
 .method-card[data-bg='1'] {
@@ -353,7 +470,7 @@ h3 {
 }
 
 .method-card[data-bg='4'] {
-  background-image: url('../imgs/method-4.png');
+  background-image: url('../imgs/method-bg-4.png');
 }
 
 .method-card[data-bg='5'] {
@@ -361,36 +478,17 @@ h3 {
 }
 
 .method-card[data-bg='6'] {
-  background-image: url('../imgs/method-6.png');
-}
-
-.method-name {
-  padding: 15px 30px 15px 30px;
-  margin: 20px 0 0 20px;
-  width: fit-content;
-  border-radius: 40px;
-  font-size: 24px;
-  font-weight: 590;
-}
-
-.method-title {
-  font-size: 24px;
-  font-weight: 590;
-  line-height: 100%;
-  letter-spacing: -2%;
-  margin: 0;
-}
-
-.method-text {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 140%;
-  letter-spacing: 0.03rem;
+  background-image: url('../imgs/method-bg-6.png');
 }
 
 .title-blue {
   background-color: #108bae;
   color: #ffffff;
+}
+
+.title-white {
+  background-color: #ffffff;
+  color: #1f1f1f;
 }
 
 .method-info {
@@ -408,33 +506,12 @@ h3 {
   margin-bottom: 116px;
 }
 
-.swiper-teachers {
-  margin-top: 40px;
+.teachers-custom-next:hover {
+  transform: scale(1.2);
 }
 
-.swiper {
-  width: 1320px;
-}
-
-.swiper-slide {
-  background: #e7eef0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  width: 1320px;
-}
-
-.swiper-buttons > button {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-  width: 60px;
-  height: 60px;
-  border: none;
-  border-radius: 50%;
-  background-color: #108bae;
-  margin-left: 10px;
+.teachers-custom-prev:hover {
+  transform: scale(1.2);
 }
 
 .teacher-name {
@@ -531,6 +608,13 @@ h3 {
   margin: 0;
 }
 
+.reviews-custom-next:hover {
+  transform: scale(1.2);
+}
+
+.reviews-custom-prev:hover {
+  transform: scale(1.2);
+}
 /* FAQ */
 
 #faq {
@@ -547,6 +631,10 @@ h3 {
   background-color: #108bae;
   border: none;
   border-radius: 38px;
+}
+
+.faq-button-question:hover {
+  transform: scale(1.2);
 }
 
 .faq-cards {
@@ -590,6 +678,17 @@ h3 {
   font-family: var(--font-title);
   font-size: 24px;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.faq-card.open .faq-toggle i {
+  transform: rotate(180deg);
 }
 
 .faq-answer {
@@ -630,7 +729,7 @@ h3 {
   width: 570px;
   height: 480px;
   padding: 40px;
-  background-image: url(../imgs/method-2.png);
+  background-image: url(../imgs/contact-bg.png);
   background-size: cover;
   background-position: center;
   border-radius: 28px;
@@ -684,6 +783,11 @@ h3 {
   font-size: 28px;
 }
 
+.contact-value {
+  color: #074e62;
+  font-size: 28px;
+}
+
 /* FOOTER */
 
 .site-footer {
@@ -706,4 +810,70 @@ h3 {
   color: #ffffff;
   font-size: 16px;
   font-weight: 400px;
+}
+
+/* MODALS */
+
+.lesson-modal-title {
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 90%;
+  letter-spacing: -4%;
+  text-transform: uppercase;
+  font-family: var(--font-title);
+  color: #1f1f1f;
+  margin: 0;
+}
+
+.lesson-modal-subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #31313199;
+}
+
+.rounded-modal {
+  border-radius: 20px;
+  padding-top: 20px;
+}
+
+.swal2-input {
+  font-size: 16px;
+  height: 50px;
+  width: 410px;
+  border-radius: 8px;
+  background-color: rgba(211, 211, 211, 0.25);
+  border: none;
+}
+
+.lesson-modal-subtitle {
+  margin: 0;
+}
+
+.swal2-input::placeholder {
+  color: #31313199;
+  opacity: 1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.swal2-input:focus {
+  border: none;
+}
+
+.swal2-confirm {
+  width: 410px;
+  height: 54px;
+  background-color: #108bae;
+  color: #ffffff;
+  font-weight: 590;
+  text-transform: uppercase;
+  font-size: 18px;
+  text-align: center;
+  margin-left: 22px;
+}
+
+.swal2-confirm:hover {
+  background-color: #108bae;
 }
