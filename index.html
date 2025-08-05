@@ -9,13 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&family=Oswald&family=Source+Sans+3:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Libertinus+Serif&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
 
+    <link href="https://fonts.cdnfonts.com/css/akrobat" rel="stylesheet" />
+
     <!-- Стили проекта -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="flex-utils.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/flex-utils.css" />
 
     <!-- Иконка -->
     <link rel="icon" href="favicon.png" type="image/png" />
@@ -26,6 +28,13 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
+    <!-- Подключение иконок -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Map 2GIS -->
     <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
     <script type="text/javascript">
       DG.then(function () {
@@ -40,45 +49,16 @@
       });
     </script>
   </head>
-  <style>
-    .popup {
-      position: fixed;
-      bottom: -100%; /* Скрыто изначально */
-      left: 0;
-      width: 100%;
-      background-color: white;
-      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
-      transition: bottom 0.3s ease;
-      z-index: 1000;
-    }
-
-    .popup.show {
-      bottom: 0; /* Показываем снизу */
-    }
-
-    .popup-content {
-      padding: 20px;
-      text-align: center;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      cursor: pointer;
-    }
-  </style>
   <body>
-    <header class="site-header d-flex flex-between-center">
-      <div class="site-header-logo d-flex">
-        <div class="site-header-logo-img d-flex flex-center-center">
-          <img width="43" height="48" src="favicon.png" alt="" />
-        </div>
-        <div class="site-header-logo-text d-flex">
-          <div class="site-header-logo-text-top">LEXIS</div>
-          <div class="site-header-logo-text-bottom">ACADEMY</div>
+    <header class="main-header d-flex flex-between-center">
+      <div class="header-logo d-flex flex-center-center">
+        <img src="./imgs/logo.png" alt="Логотип Lexis Academy" width="100%" />
+        <div class="header-name">
+          <div class="logo-text-top">LEXIS</div>
+          <div class="logo-text-bottom">ACADEMY</div>
         </div>
       </div>
-      <div class="site-header-site-nav d-flex flex-between-center">
+      <nav class="header-nav d-flex flex-between-center">
         <ul>
           <li><a href="#programs">Программы</a></li>
           <li><a href="#benefits">Преимущества</a></li>
@@ -88,49 +68,42 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
-        <div class="site-header-number">
-          <button class="site-header-number-button">+7 700 293 69 13</button>
-        </div>
-      </div>
+        <a
+          id="header-number"
+          class="d-flex flex-center-center"
+          href="tel:+77002936913"
+          >+7 700 293 69 13</a
+        >
+      </nav>
     </header>
     <div class="site-promo d-flex flex-between-center">
-      <div class="site-promo-img">
-        <img src="promo.png" alt="" />
-      </div>
-      <div class="site-promo-context d-flex flex-column flex-between-center">
-        <div
-          class="site-promo-context-white d-flex flex-column flex-between-start"
-        >
-          <div class="site-promo-context-white-title">
-            <span style="color: #074e62">Lexis Academy.</span><br />
-            Курсы английского языка в Астане
-          </div>
-          <div class="site-promo-context-white-text">
+      <img class="promo-banner" src="./imgs/promo.png" alt="Banner" />
+      <div class="promo-content">
+        <div class="promo-main">
+          <p class="promo-title">
+            <span style="color: #074e62">Lexis Academy.</span>
+            <span style="display: block">Курсы английского языка в Астане</span>
+          </p>
+          <p class="promo-text">
             Лучшие образовательные центры для детей, подростков и взрослых –
             первое занятие бесплатно!
-          </div>
-          <div class="site-promo-context-white-subscribe">
-            <button class="site-promo-context-white-subscribe-button">
-              Записаться на бесплатное занятие
-            </button>
-          </div>
+          </p>
+          <button class="promo-btn">Записаться на бесплатное занятие</button>
         </div>
-        <div class="site-promo-context-bottom d-flex flex-between-center">
-          <div class="site-promo-context-bottom-text">
-            Более 15000+ <br />учеников выбрали нашу академию
-          </div>
-          <div class="site-promo-context-bottom-imgs d-flex flex-start-center">
+        <div class="promo-footer d-flex flex-between-center">
+          <p>Более 15000+ <br />учеников выбрали нашу академию</p>
+          <div class="promo-circles d-flex flex-start-center">
             <div class="circle c-1 d-flex flex-center-center">
-              <img src="c1.png" alt="" />
+              <img src="./imgs/c1.png" alt="Ученик 1" />
             </div>
             <div class="circle c-2 d-flex flex-center-center">
-              <img src="c2.png" alt="" />
+              <img src="./imgs/c2.png" alt="Ученик 2" />
             </div>
             <div class="circle c-3 d-flex flex-center-center">
-              <img src="c3.png" alt="" />
+              <img src="./imgs/c3.png" alt="Ученик 3" />
             </div>
             <div class="circle c-4 d-flex flex-center-center">
-              <img src="c4.png" alt="" />
+              <img src="./imgs/c4.png" alt="Ученик 4" />
             </div>
             <div class="circle c-5 d-flex flex-center-center">+15к</div>
           </div>
@@ -138,152 +111,144 @@
       </div>
     </div>
     <section id="programs" class="d-flex flex-column flex-between-start">
-      <div class="section-title">
-        <span style="color: #108bae">Программы</span> обучения
-      </div>
+      <p class="section-title">
+        <span class="title-colored">Программы</span> обучения
+      </p>
+
       <div class="programs-cards d-flex flex-between-center">
-        <div
-          class="programs-cards-standard d-flex flex-column flex-between-start"
-        >
-          <img src="ielts.png" alt="" />
-          <div class="programs-cards-standard-title">IELTS</div>
-          <div class="programs-cards-standard-text">
+        <div class="programs-card d-flex flex-column flex-between-start">
+          <img src="./imgs/ielts.png" alt="Курс IELTS" />
+          <p class="programs-card-title">IELTS</p>
+          <p class="programs-card-text">
             Для краткого описание направления, если оно нужно, если нет, уберем
-          </div>
-          <button class="programs-cards-standard-button">Подробнее</button>
+          </p>
+          <button class="programs-card-button">Подробнее</button>
         </div>
-        <div
-          class="programs-cards-standard d-flex flex-column flex-between-start"
-        >
-          <img src="students.png" alt="" />
-          <div class="programs-cards-standard-title">Студенты / школьники</div>
-          <div class="programs-cards-standard-text">
+        <div class="programs-card d-flex flex-column flex-between-start">
+          <img
+            src="./imgs/students.png"
+            alt="Курс для студентов и школьников"
+          />
+          <p class="programs-card-title">Студенты / школьники</p>
+          <p class="programs-card-text">
             Для краткого описание направления, если оно нужно, если нет, уберем
-          </div>
-          <button class="programs-cards-standard-button">Подробнее</button>
+          </p>
+          <button class="programs-card-button">Подробнее</button>
         </div>
-        <div
-          class="programs-cards-standard d-flex flex-column flex-between-start"
-        >
-          <img src="general.png" alt="" />
-          <div class="programs-cards-standard-title">
-            General English (для взрослых)
+        <div class="programs-card d-flex flex-column flex-between-start">
+          <img src="./imgs/general.png" alt="General English для взрослых" />
+          <div class="d-flex flex-between-end">
+            <p class="programs-card-title">General English</p>
+            <p class="programs-card-subtitle">(для взрослых)</p>
           </div>
-          <div class="programs-cards-standard-text">
+          <p class="programs-card-text">
             Для краткого описание направления, если оно нужно, если нет, уберем
-          </div>
-          <button class="programs-cards-standard-button">Подробнее</button>
+          </p>
+          <button class="programs-card-button">Подробнее</button>
         </div>
-        <div
-          class="programs-cards-standard d-flex flex-column flex-between-start"
-        >
-          <img src="coop.png" alt="" />
-          <div class="programs-cards-standard-title">Корпоративный</div>
-          <div class="programs-cards-standard-text">
+        <div class="programs-card d-flex flex-column flex-between-start">
+          <img src="./imgs/coop.png" alt="Корпоративный курс" />
+          <p class="programs-card-title">Корпоративный</p>
+          <p class="programs-card-text">
             Для краткого описание направления, если оно нужно, если нет, уберем
-          </div>
-          <button class="programs-cards-standard-button">Подробнее</button>
+          </p>
+          <button class="programs-card-button">Подробнее</button>
         </div>
       </div>
     </section>
     <section id="benefits">
-      <div class="section-title">
-        <span style="color: #108bae">Преимущества</span> академии
-      </div>
+      <p class="section-title">
+        <span class="title-colored">Преимущества</span> академии
+      </p>
       <div class="benefits-cards d-flex flex-between-center">
         <div
-          class="benefits-cards-standard benefits-card-one d-flex flex-column flex-around-center"
+          class="benefits-card d-flex flex-column flex-around-center"
+          data-bg="1"
         >
           <div class="benefits-card-logo d-flex flex-end-center">
-            <img src="/card-logo-1.png" alt="" />
+            <img src="./imgs/card-logo-1.png" alt="Логотип карточки 1" />
           </div>
           <div class="benefits-card-info d-flex flex-column flex-start-center">
-            <div class="benefits-card-info-title">
-              Живой английский <br />
-              с первого занятия
-            </div>
-            <div class="benefits-card-info-text">
+            <p class="benefits-title">Живой английский с первого занятия</p>
+            <p class="benefits-text">
               Мы учим говорить, а не просто запоминать правила. На уроках —
               максимум практики, диалогов и реальных ситуаций из жизни.
-            </div>
+            </p>
           </div>
         </div>
         <div
-          class="benefits-cards-standard benefits-card-two d-flex flex-column flex-around-center"
+          class="benefits-card d-flex flex-column flex-around-center"
+          data-bg="2"
         >
           <div class="benefits-card-logo d-flex flex-end-center">
-            <img src="/card-logo-2.png" alt="" />
+            <img src="./imgs/card-logo-2.png" alt="Логотип карточки 2" />
           </div>
           <div class="benefits-card-info d-flex flex-column flex-start-center">
-            <div class="benefits-card-info-title">
-              Гибкий график и <br />
-              обучение в центре Астаны
-            </div>
-            <div class="benefits-card-info-text">
+            <p class="benefits-title">
+              Гибкий график и обучение в центре Астаны
+            </p>
+            <p class="benefits-text">
               Занятия утром, днем и вечером — офлайн или онлайн. Учитесь тогда,
               когда удобно вам, в комфортных аудиториях в самом центре города.
-            </div>
+            </p>
           </div>
         </div>
         <div
-          class="benefits-cards-standard benefits-card-three d-flex flex-column flex-around-center"
+          class="benefits-card d-flex flex-column flex-around-center"
+          data-bg="3"
         >
           <div class="benefits-card-logo d-flex flex-end-center">
-            <img src="/card-logo-3.png" alt="" />
+            <img src="./imgs/card-logo-3.png" alt="Логотип карточки 3" />
           </div>
           <div class="benefits-card-info d-flex flex-column flex-start-center">
-            <div class="benefits-card-info-title">
+            <p class="benefits-title">
               Преподаватели с международной практикой
-            </div>
-            <div class="benefits-card-info-text">
+            </p>
+            <p class="benefits-text">
               Наши преподаватели — не просто носители языка или дипломированные
               специалисты. У них есть опыт работы и преподавания в США,
               Великобритании и других англоязычных странах.
-            </div>
+            </p>
           </div>
         </div>
       </div>
     </section>
     <section id="method">
-      <div class="section-title">
-        <span style="color: #108bae">Методика</span> обучения
-      </div>
+      <p class="section-title">
+        <span class="title-colored">Методика</span> обучения
+      </p>
       <div class="method-cards d-flex flex-between-center flex-wrap">
-        <div class="method-card-standard method-card-one">
-          <div class="method-card-title title-blue d-flex flex-center-center">
+        <div class="method-card" data-bg="1">
+          <p class="method-name title-blue d-flex flex-center-center">
             Разговорная практика
-          </div>
+          </p>
         </div>
-        <div
-          class="method-card-standard method-card-two d-flex flex-center-center"
-        >
-          <div
-            class="method-card-two-info d-flex flex-column flex-start-center"
-          >
-            <div class="benefits-card-info-title">Система отслеживания</div>
-            <div class="benefits-card-info-text">
+        <div class="method-card d-flex flex-center-center" data-bg="2">
+          <div class="method-info d-flex flex-column flex-start-start">
+            <p class="method-title">Система отслеживания</p>
+            <p class="method-text">
               Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
               всегда знаете, <b>где вы находитесь и к чему двигаться дальше.</b>
-            </div>
+            </p>
           </div>
         </div>
-        <div class="method-card-standard method-card-three">
-          <div class="method-card-title title-blue d-flex flex-center-center">
+        <div class="method-card" data-bg="3">
+          <p class="method-name title-blue d-flex flex-center-center">
             Современные материалы
-          </div>
+          </p>
         </div>
-        <div class="method-card-standard method-card-four"></div>
-        <div class="method-card-standard method-card-five">
-          <div class="method-card-title title-blue d-flex flex-center-center">
+        <div class="method-card" data-bg="4"></div>
+        <div class="method-card" data-bg="5">
+          <p class="method-name title-blue d-flex flex-center-center">
             Мини-группы
-          </div>
+          </p>
         </div>
-        <div class="method-card-standard method-card-six"></div>
+        <div class="method-card" data-bg="6"></div>
       </div>
     </section>
     <section id="teachers">
-      <div class="section-title d-flex flex-between-center">
-        <span style="color: #108bae">Преподаватели</span>
+      <div class="section-title-swiper d-flex flex-between-center">
+        <p>Преподаватели</p>
         <div class="swiper-buttons d-flex flex-center-center">
           <button class="teachers-custom-prev d-flex flex-center-center">
             〈
@@ -293,64 +258,64 @@
           </button>
         </div>
       </div>
-      <div class="teachers-cards d-flex flex-between-center">
+      <div class="teachers-cards">
         <div class="swiper swiper-teachers">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="./teacher-1.png" alt="" />
-              <div class="teacher-card-name">Имя Фамилия</div>
-              <div class="teacher-card-info">
+              <img src="./imgs/teacher-1.png" alt="Учитель 1" />
+              <p class="teacher-name">Имя Фамилия</p>
+              <p class="teacher-info">
                 Краткий текст о преподаватели школы английского языка
-              </div>
-              <button class="teacher-card-button">Сертификаты</button>
+              </p>
+              <button class="teacher-button">Сертификаты</button>
             </div>
             <div class="swiper-slide">
-              <img src="./teacher-2.png" alt="" />
-              <div class="teacher-card-name">Имя Фамилия</div>
-              <div class="teacher-card-info">
+              <img src="./imgs/teacher-2.png" alt="Учитель 2" />
+              <p class="teacher-name">Имя Фамилия</p>
+              <p class="teacher-info">
                 Краткий текст о преподаватели школы английского языка
-              </div>
-              <button class="teacher-card-button">Сертификаты</button>
+              </p>
+              <button class="teacher-button">Сертификаты</button>
             </div>
             <div class="swiper-slide">
-              <img src="./teacher-3.png" alt="" />
-              <div class="teacher-card-name">Имя Фамилия</div>
-              <div class="teacher-card-info">
+              <img src="./imgs/teacher-3.png" alt="Учитель 3" />
+              <p class="teacher-name">Имя Фамилия</p>
+              <p class="teacher-info">
                 Краткий текст о преподаватели школы английского языка
-              </div>
-              <button class="teacher-card-button">Сертификаты</button>
+              </p>
+              <button class="teacher-button">Сертификаты</button>
             </div>
             <div class="swiper-slide">
-              <img src="./teacher-4.png" alt="" />
-              <div class="teacher-card-name">Имя Фамилия</div>
-              <div class="teacher-card-info">
+              <img src="./imgs/teacher-4.png" alt="Учитель 4" />
+              <p class="teacher-name">Имя Фамилия</p>
+              <p class="teacher-info">
                 Краткий текст о преподаватели школы английского языка
-              </div>
-              <button class="teacher-card-button">Сертификаты</button>
+              </p>
+              <button class="teacher-button">Сертификаты</button>
             </div>
             <div class="swiper-slide">
-              <img src="./teacher-3.png" alt="" />
-              <div class="teacher-card-name">Имя Фамилия</div>
-              <div class="teacher-card-info">
+              <img src="./imgs/teacher-3.png" alt="Учитель 5" />
+              <p class="teacher-name">Имя Фамилия</p>
+              <p class="teacher-info">
                 Краткий текст о преподаватели школы английского языка
-              </div>
-              <button class="teacher-card-button">Сертификаты</button>
+              </p>
+              <button class="teacher-button">Сертификаты</button>
             </div>
             <div class="swiper-slide">
-              <img src="./teacher-4.png" alt="" />
-              <div class="teacher-card-name">Имя Фамилия</div>
-              <div class="teacher-card-info">
+              <img src="./imgs/teacher-4.png" alt="Учитель 6" />
+              <p class="teacher-name">Имя Фамилия</p>
+              <p class="teacher-info">
                 Краткий текст о преподаватели школы английского языка
-              </div>
-              <button class="teacher-card-button">Сертификаты</button>
+              </p>
+              <button class="teacher-button">Сертификаты</button>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section id="reviews">
-      <div class="section-title d-flex flex-between-center">
-        <span style="color: #108bae">Отзывы</span>
+      <div class="section-title-swiper d-flex flex-between-center">
+        <p>Отзывы</p>
         <div class="swiper-buttons d-flex flex-center-center">
           <button class="reviews-custom-prev d-flex flex-center-center">
             〈
@@ -360,156 +325,219 @@
           </button>
         </div>
       </div>
-
-      <div class="reviews-cards d-flex flex-between-center">
+      <div class="reviews-cards">
         <div class="swiper swiper-reviews">
           <div class="swiper-wrapper">
-            <div class="swiper-slide review-cards">
+            <div class="swiper-slide review-card">
               <div class="review-card-user d-flex flex-start-center">
-                <img src="./teacher-1.png" alt="" width="60px" />
+                <img src="./imgs/teacher-1.png" alt="Учитель 1" />
                 <div>
-                  <div class="review-card-user-name">Данияр</div>
-                  <div class="review-card-user-level">уровень A2 → B1</div>
+                  <p class="review-name">Данияр</p>
+                  <p class="review-level">уровень A2 → B1</p>
                 </div>
               </div>
-              <div class="review-card-comment d-flex flex-center-center">
-                <div class="review-card-comment-white d-flex flex-center-start">
+              <div class="review-bg-blue d-flex flex-center-center">
+                <p class="review-comment">
                   Учил для работы, но в итоге начал смотреть сериалы без
                   субтитров. Методика — огонь!
-                </div>
+                </p>
               </div>
             </div>
-            <div class="swiper-slide review-cards">
+            <div class="swiper-slide review-card">
               <div class="review-card-user d-flex flex-start-center">
-                <img src="./teacher-3.png" alt="" width="60px" />
+                <img src="./imgs/teacher-3.png" alt="Учитель 2" />
                 <div>
-                  <div class="review-card-user-name">Лиза</div>
-                  <div class="review-card-user-level">уровень A2 → B1</div>
+                  <p class="review-name">Лиза</p>
+                  <p class="review-level">уровень A2 → B1</p>
                 </div>
               </div>
-              <div class="review-card-comment d-flex flex-center-center">
-                <div class="review-card-comment-white d-flex flex-center-start">
+              <div class="review-bg-blue d-flex flex-center-center">
+                <p class="review-comment">
                   Очень уютная школа и сильные преподаватели. Каждое занятие
                   проходило на одном дыхании!
-                </div>
+                </p>
               </div>
             </div>
-            <div class="swiper-slide review-cards">
+            <div class="swiper-slide review-card">
               <div class="review-card-user d-flex flex-start-center">
-                <img src="./teacher-2.png" alt="" width="60px" />
+                <img src="./imgs/teacher-2.png" alt="Учитель 3" />
                 <div>
-                  <div class="review-card-user-name">Марк</div>
-                  <div class="review-card-user-level">уровень С2 → B1</div>
+                  <p class="review-name">Марк</p>
+                  <p class="review-level">уровень С2 → B1</p>
                 </div>
               </div>
-              <div class="review-card-comment d-flex flex-center-center">
-                <div class="review-card-comment-white d-flex flex-center-start">
+              <div class="review-bg-blue d-flex flex-center-center">
+                <p class="review-comment">
                   Раньше боялась говорить даже “Hello”, а теперь свободно
                   общаюсь с иностранцами! Спасибо преподавателям за поддержку и
                   терпение.
-                </div>
+                </p>
               </div>
             </div>
-            <div class="swiper-slide review-cards">
+            <div class="swiper-slide review-card">
               <div class="review-card-user d-flex flex-start-center">
-                <img src="./teacher-3.png" alt="" width="60px" />
+                <img src="./imgs/teacher-3.png" alt="Учитель 4" />
                 <div>
-                  <div class="review-card-user-name">Лия</div>
-                  <div class="review-card-user-level">уровень В2 → С1</div>
+                  <p class="review-name">Лия</p>
+                  <p class="review-level">уровень В2 → С1</p>
                 </div>
               </div>
-              <div class="review-card-comment d-flex flex-center-center">
-                <div class="review-card-comment-white d-flex flex-center-start">
+              <div class="review-bg-blue d-flex flex-center-center">
+                <p class="review-comment">
                   Учил для работы, но в итоге начал смотреть сериалы без
                   субтитров. Методика — огонь!
-                </div>
+                </p>
               </div>
             </div>
-            <div class="swiper-slide review-cards">
+            <div class="swiper-slide review-card">
               <div class="review-card-user d-flex flex-start-center">
-                <img src="./teacher-1.png" alt="" width="60px" />
+                <img src="./imgs/teacher-1.png" alt="Учитель 5" />
                 <div>
-                  <div class="review-card-user-name">Данияр</div>
-                  <div class="review-card-user-level">уровень A2 → B1</div>
+                  <p class="review-name">Данияр</p>
+                  <p class="review-level">уровень A2 → B1</p>
                 </div>
               </div>
-              <div class="review-card-comment d-flex flex-center-center">
-                <div class="review-card-comment-white d-flex flex-center-start">
+              <div class="review-bg-blue d-flex flex-center-center">
+                <p class="review-comment">
                   Учил для работы, но в итоге начал смотреть сериалы без
                   субтитров. Методика — огонь!
-                </div>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="faq" style="margin-bottom: 200px">
+    <section id="faq">
       <div class="section-title d-flex flex-between-center">
-        <div>Часто задаваемые <span style="color: #108bae">вопросы</span></div>
-        <button class="faq-button-question">Задать вопрос</button>
+        <div class="section-title-swiper d-flex flex-between-center">
+          <p class="section-title">
+            <span style="color: #1f1f1f">Часто задаваемые</span> вопросы
+          </p>
+          <button class="faq-button-question">Задать вопрос</button>
+        </div>
       </div>
-      <div class="faq-cards d-flex flex-wrap flex-between-start">
-        <div class="faq-card">
-          <div class="faq-question d-flex flex-between-center">
-            <div>С какого уровня можно начать обучение?</div>
-            <button class="faq-toggle">+</button>
+      <div class="faq-cards d-flex flex-between-start">
+        <div class="faq-left d-flex flex-column flex-between-center">
+          <div class="faq-card">
+            <div class="faq-question d-flex flex-between-center">
+              <p>С какого уровня можно начать обучение?</p>
+              <button class="faq-toggle d-flex flex-center-center">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="faq-answer">
+              Можно начать с любого уровня, даже с полного нуля!
+            </div>
           </div>
-          <div class="faq-answer">
-            Можно начать с любого уровня, даже с полного нуля!
+          <div class="faq-card">
+            <div class="faq-question d-flex flex-between-center">
+              <p>С какого уровня можно начать обучение?</p>
+              <button class="faq-toggle d-flex flex-center-center">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="faq-answer">
+              Можно начать с любого уровня, даже с полного нуля!
+            </div>
+          </div>
+          <div class="faq-card">
+            <div class="faq-question d-flex flex-between-center">
+              <p>С какого уровня можно начать обучение?</p>
+              <button class="faq-toggle d-flex flex-center-center">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="faq-answer">
+              Можно начать с любого уровня, даже с полного нуля!
+            </div>
           </div>
         </div>
-        <div class="faq-card">
-          <div class="faq-question d-flex flex-between-center">
-            <div>Нужны ли технические навыки?</div>
-            <button class="faq-toggle">+</button>
+        <div class="faq-right d-flex flex-column flex-between-center">
+          <div class="faq-card">
+            <div class="faq-question d-flex flex-between-center">
+              <p>С какого уровня можно начать обучение?</p>
+              <button class="faq-toggle d-flex flex-center-center">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="faq-answer">
+              Можно начать с любого уровня, даже с полного нуля!
+            </div>
           </div>
-          <div class="faq-answer">
-            Нет, обучение начинается с самого простого.
+          <div class="faq-card">
+            <div class="faq-question d-flex flex-between-center">
+              <p>С какого уровня можно начать обучение?</p>
+              <button class="faq-toggle d-flex flex-center-center">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="faq-answer">
+              Можно начать с любого уровня, даже с полного нуля!
+            </div>
           </div>
-        </div>
-        <div class="faq-card">
-          <div class="faq-question d-flex flex-between-center">
-            <div>С какого уровня можно начать обучение?</div>
-            <button class="faq-toggle">+</button>
-          </div>
-          <div class="faq-answer">
-            Да, если предупредите заранее. Некоторые занятия можно догнать в
-            другой группе или получить материалы.
+          <div class="faq-card">
+            <div class="faq-question d-flex flex-between-center">
+              <p>С какого уровня можно начать обучение?</p>
+              <button class="faq-toggle d-flex flex-center-center">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+            <div class="faq-answer">
+              Можно начать с любого уровня, даже с полного нуля!
+            </div>
           </div>
         </div>
       </div>
     </section>
     <section id="contacts" class="d-flex flex-between-start">
-      <div
-        class="contact d-flex flex-column flex-center-center"
-        style="margin-bottom: 200px"
-      >
-        <h2 class="contact-title">КОНТАКТЫ</h2>
-        <div class="contact-white d-flex flex-column flex-center-center">
-          <div class="contact-white-titles">
-            Адрес <br />
-            <span class="contact-white-info"
-              >Dostyk 1, Akmola, Astana, Kazakhstan Z05H9H0</span
+      <div class="contact-bg">
+        <p class="contact-title">Контакты</p>
+        <div class="contact-list d-flex flex-column flex-between-center">
+          <div class="contact-item">
+            <p class="contact-label">Адрес</p>
+            <a
+              class="contact-value"
+              href="https://goo.gl/maps/..."
+              target="_blank"
+            >
+              Dostyk 1, Astana, Kazakhstan
+            </a>
+          </div>
+          <div class="contact-item">
+            <p class="contact-label">Телефон</p>
+            <a class="contact-value" href="tel:+77002936913"
+              >+7 700 293 69 13</a
             >
           </div>
-          <div class="contact-white-titles">
-            Телефон <br />
-            <span class="contact-white-info">+7 700 293 69 13</span>
+          <div class="contact-item">
+            <p class="contact-label">Email</p>
+            <a class="contact-value" href="mailto:info@lexis.kz"
+              >info@lexis.kz</a
+            >
           </div>
-          <div class="contact-white-titles">
-            Email <br />
-            <span class="contact-white-info">info@mail.com</span>
+          <div class="contact-item">
+            <p class="contact-label">WhatsApp</p>
+            <a
+              class="contact-value"
+              href="https://wa.me/77002936913"
+              target="_blank"
+            >
+              +7 700 293 69 13
+            </a>
           </div>
-          <div class="contact-white-titles">
-            WhatsApp <br />
-            <span class="contact-white-info">+7 700 293 69 13</span>
-          </div>
-          <div class="contact-white-imgs">
-            <img src="./contact-instagram.png" alt="" /><img
-              src="./contact-youtube.png"
-              alt=""
-            /><img src="./contact-telegram.png" alt="" />
+          <div class="contact-icons d-flex">
+            <div class="contact-icons d-flex">
+              <a href="https://instagram.com/..." target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://youtube.com/..." target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://t.me/..." target="_blank">
+                <i class="fa-brands fa-telegram"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -517,16 +545,14 @@
     </section>
     <footer class="site-footer">
       <div class="footer-white d-flex flex-between-center">
-        <div class="d-flex">
-          <div class="d-flex flex-center-center">
-            <img width="43" height="48" src="favicon.png" alt="" />
-          </div>
-          <div class="site-header-logo-text d-flex">
-            <div class="site-header-logo-text-top">LEXIS</div>
-            <div class="site-header-logo-text-bottom">ACADEMY</div>
+        <div class="header-logo d-flex flex-center-center">
+          <img src="./imgs/logo.png" alt="Логотип Lexis Academy" width="100%" />
+          <div class="header-name">
+            <div class="logo-text-top">LEXIS</div>
+            <div class="logo-text-bottom">ACADEMY</div>
           </div>
         </div>
-        <div class="site-header-site-nav d-flex flex-between-center">
+        <nav class="header-nav d-flex flex-between-center">
           <ul>
             <li><a href="#programs">Программы</a></li>
             <li><a href="#benefits">Преимущества</a></li>
@@ -536,7 +562,13 @@
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contacts">Контакты</a></li>
           </ul>
-        </div>
+          <a
+            id="header-number"
+            class="d-flex flex-center-center"
+            href="tel:+77002936913"
+            >+7 700 293 69 13</a
+          >
+        </nav>
       </div>
       <div class="footer-bottom d-flex flex-between-center">
         <p>Политика конфиденциальности</p>
@@ -553,21 +585,21 @@
         // Закрыть все
         document.querySelectorAll('.faq-card').forEach(c => {
           c.classList.remove('open');
-          c.querySelector('.faq-toggle').textContent = '+';
+          c.querySelector('.faq-toggle').innerHTML =
+            '<i class="fa-solid fa-plus"></i>';
         });
 
         // Открыть текущий, если не был открыт
         if (!isOpen) {
           card.classList.add('open');
-          button.textContent = '−';
+          button.innerHTML = '<i class="fa-solid fa-minus"></i>';
         }
       });
     });
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
   <!-- Инициализация swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper('.swiper-teachers', {
       loop: true, // можно включить true если нужна бесконечность

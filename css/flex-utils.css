@@ -1,0 +1,128 @@
+/* Базовый класс */
+.d-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* Justify-content */
+.flex-justify-start {
+  justify-content: flex-start;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-justify-around {
+  justify-content: space-around;
+}
+.flex-justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Align-items */
+.flex-align-start {
+  align-items: flex-start;
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-align-end {
+  align-items: flex-end;
+}
+.flex-align-stretch {
+  align-items: stretch;
+}
+.flex-align-baseline {
+  align-items: baseline;
+}
+
+/* Комбинации: justify + align */
+.flex-start-start {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex-start-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-start-end {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.flex-center-start {
+  justify-content: center;
+  align-items: flex-start;
+}
+.flex-center-center {
+  justify-content: center;
+  align-items: center;
+}
+.flex-center-end {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.flex-end-start {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.flex-end-center {
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-end-end {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.flex-between-start {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.flex-between-center {
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-between-end {
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.flex-around-start {
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.flex-around-center {
+  justify-content: space-around;
+  align-items: center;
+}
+.flex-around-end {
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.flex-evenly-start {
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.flex-evenly-center {
+  justify-content: space-evenly;
+  align-items: center;
+}
+.flex-evenly-end {
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
