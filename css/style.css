@@ -190,6 +190,7 @@ html {
   letter-spacing: -4%;
   text-transform: uppercase;
   transition: transform 0.8s ease;
+  cursor: pointer;
 }
 
 .promo-btn:hover {
@@ -302,6 +303,7 @@ h3 {
   letter-spacing: -2%;
   text-transform: uppercase;
   transition: transform 0.8s ease;
+  cursor: pointer;
 }
 
 .programs-card-button:hover {
@@ -556,6 +558,7 @@ h3 {
   border-radius: 48px;
   background-color: #108bae;
   transition: transform 0.8s ease;
+  cursor: pointer;
 }
 
 .teacher-button:hover {
@@ -660,6 +663,7 @@ h3 {
   border: none;
   border-radius: 38px;
   transition: transform 0.8s ease;
+  cursor: pointer;
 }
 
 .faq-button-question:hover {
@@ -675,6 +679,7 @@ h3 {
   min-height: 78px;
   border-radius: 12px;
   background-color: #ffffff;
+  cursor: pointer;
 }
 
 .faq-left {
@@ -703,7 +708,6 @@ h3 {
   border: none;
   border-radius: 50%;
   background-color: #074e62;
-  cursor: pointer;
   font-family: var(--font-title);
   font-size: 24px;
   color: #ffffff;
@@ -807,7 +811,7 @@ h3 {
   gap: 24px;
 }
 
-.contact-icons > a {
+.contact-icons a {
   color: #074e62;
   font-size: 28px;
 }
@@ -835,7 +839,7 @@ h3 {
   border-radius: 0 0 16px 16px;
 }
 
-.footer-bottom > p {
+.footer-bottom p {
   color: #ffffff;
   font-size: 16px;
   font-weight: 400px;

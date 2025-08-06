@@ -539,7 +539,7 @@
           <div class="contact-list d-flex flex-column flex-between-center">
             <div class="contact-item">
               <p class="contact-label">Адрес</p>
-              <p class="contact-value">Dostyk 1, Astana, Kazakhstan</p>
+              <a class="contact-value"> Dostyk 1, Astana, Kazakhstan </a>
             </div>
             <div class="contact-item">
               <p class="contact-label">Телефон</p>
@@ -644,7 +644,7 @@
 
   <!-- Инициализация открытия вопросы -->
   <script>
-    document.querySelectorAll('.faq-toggle').forEach(button => {
+    document.querySelectorAll('.faq-card').forEach(button => {
       button.addEventListener('click', () => {
         const card = button.closest('.faq-card');
         const isOpen = card.classList.contains('open');
