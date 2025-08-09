@@ -64,7 +64,7 @@
             >+7 700 293 69 13</a
           >
         </nav>
-        <div class="header-burger">
+        <div id="burger" class="header-burger">
           <i class="burger-icon fa-solid fa-bars"></i>
           <span class="burger-text">Меню</span>
         </div>
@@ -653,7 +653,26 @@
           <p>Пользовательское соглашение</p>
         </div>
       </footer>
-      <!-- <div class="hover-overlay"></div> -->
+      <div id="menu" class="menu hidden">
+        <nav class="menu-content d-flex flex-column flex-between-center">
+          <ul class="d-flex flex-column flex-between-center">
+            <li><a href="#programs">Программы</a></li>
+            <li><a href="#benefits">Преимущества</a></li>
+            <li><a href="#method">Методика</a></li>
+            <li><a href="#teachers">Преподаватели</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+          <a
+            id="menu-number"
+            class="d-flex flex-center-center"
+            href="tel:+77002936913"
+            >+7 700 293 69 13</a
+          >
+        </nav>
+      </div>
+      <div id="overlay" class="overlay hidden"></div>
     </div>
   </body>
 
@@ -785,44 +804,46 @@
   </script>
 
   <!-- Модальное окно бесплатного занятия -->
-  <!-- <script>
+  <script>
     function openForm() {
       Swal.fire({
         title: '<p class="lesson-modal-title">БЕСПЛАТНОЕ ЗАНЯТИЕ</p>',
         html: `
-        <p class="lesson-modal-subtitle">
-          Оставьте заявку, наш менеджер свяжется<br> с вами в ближайшее время
-        </p>
-        <input id="swal-name" class="swal2-input" placeholder="Имя">
-        <input id="swal-age" class="swal2-input" placeholder="Возраст">
-        <input id="swal-phone" class="swal2-input" placeholder="Номер телефона">
+        <form id="lesson-form" class="swal-form">
+          <p class="lesson-modal-subtitle">
+            Оставьте заявку, наш менеджер свяжется<br> с вами в ближайшее время
+          </p>
+          <input name="name" class="swal2-input" placeholder="Имя" required>
+          <input name="age" class="swal2-input" placeholder="Возраст" required>
+          <input name="phone" class="swal2-input" placeholder="Номер телефона" required>
+        </form>
       `,
         showCancelButton: false,
-        confirmButtonText: 'ОСТАВИТЬ ЗАЯВКУ',
+        showCloseButton: true, // крестик
+        confirmButtonText: '<p class="confirm-button">ОСТАВИТЬ ЗАЯВКУ</p>',
         confirmButtonColor: '#0796b9',
         customClass: {
           popup: 'rounded-modal',
+          closeButton: 'custom-close-btn',
+          container: 'blurred-container', // ✅ класс для замыливания фона
         },
         preConfirm: () => {
-          const name = document.getElementById('swal-name').value.trim();
-          const age = document.getElementById('swal-age').value.trim();
-          const phone = document.getElementById('swal-phone').value.trim();
+          const form = document.getElementById('lesson-form');
+          const formData = new FormData(form);
+
+          const name = formData.get('name').trim();
+          const age = formData.get('age').trim();
+          const phone = formData.get('phone').trim();
 
           if (!name || !age || !phone) {
             Swal.showValidationMessage('Заполните все поля');
             return false;
           }
 
-          // Нормализуем номер — оставим только цифры
           const digits = phone.replace(/\D/g, '');
-
-          // Разрешаем:
-          // - 10 цифр (локальный, например 7002936913)
-          // - 11 цифр, начинающихся с 7 или 8 (например +77002936913 или 87002936913)
           const valid =
-            digits.length === 10 ||
-            (digits.length === 11 &&
-              (digits.startsWith('7') || digits.startsWith('8')));
+            digits.length === 11 &&
+            (digits.startsWith('7') || digits.startsWith('8'));
 
           if (!valid) {
             Swal.showValidationMessage(
@@ -831,26 +852,52 @@
             return false;
           }
 
-          // При желании можно нормализовать в формат +7xxxxxxxxxx
           let normalized;
-          if (digits.length === 10) {
-            normalized = '+7' + digits;
-          } else if (digits.length === 11 && digits.startsWith('8')) {
-            normalized = '+7' + digits.slice(1);
-          } else {
-            // digits.length === 11 && startsWith 7
+          if (digits.startsWith('7')) {
             normalized = '+' + digits;
+          } else {
+            normalized = '+7' + digits.slice(1);
           }
 
           return { name, age, phone: normalized };
         },
       }).then(result => {
         if (result.isConfirmed) {
-          // result.value.phone уже в нормализованном виде (+7xxxxxxxxxx)
           console.log(result.value);
           Swal.fire('Спасибо!', 'Мы скоро с вами свяжемся', 'success');
         }
       });
     }
-  </script> -->
+  </script>
+
+  <!-- Логика бургера -->
+  <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('overlay');
+    const header = document.querySelector('.main-header');
+    const menuLinks = menu.querySelectorAll('a');
+
+    // Открыть меню
+    burger.addEventListener('click', () => {
+      const rect = header.getBoundingClientRect();
+      menu.style.width = rect.width - 10 + 'px';
+      menu.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+      document.body.classList.add('blurred'); // включаем размытие фона
+    });
+
+    // Закрыть меню
+    function closeMenu() {
+      menu.classList.add('hidden');
+      overlay.classList.add('hidden');
+      document.body.classList.remove('blurred'); // убираем размытие фона
+    }
+
+    overlay.addEventListener('click', closeMenu);
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
 </html>

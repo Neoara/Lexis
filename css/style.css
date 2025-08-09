@@ -947,6 +947,10 @@ html {
   padding-top: 20px;
 }
 
+.swal2-title {
+  padding-top: 0;
+}
+
 .swal2-input {
   font-size: 16px;
   height: 50px;
@@ -986,4 +990,24 @@ html {
 
 .swal2-confirm:hover {
   background-color: #108bae;
+}
+
+.confirm-button {
+  font-size: 18px;
+  font-weight: 590;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.custom-close-btn {
+  margin-bottom: 1px;
+}
+
+.blurred-container {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* для Safari */
+}
+
+.hidden {
+  display: none;
 }
