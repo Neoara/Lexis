@@ -14,6 +14,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.site-container {
+  margin: 0 50px;
+}
+
 .section-title {
   font-size: 68px;
   font-weight: 700;
@@ -39,21 +43,13 @@ html {
   color: #108bae;
 }
 
-.swiper-teachers {
+.teachers-cards {
   margin-top: 40px;
 }
 
 .swiper {
-  width: 1320px;
-}
-
-.swiper-slide {
-  background: #e7eef0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
 }
 
 .swiper-buttons > i {
@@ -63,10 +59,20 @@ html {
   cursor: pointer;
 }
 
+.buttons-top {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-bottom {
+  display: none;
+}
+
 /* HEADER */
 
 .main-header {
-  width: 1280px;
+  max-width: 1320px;
+  width: 100%;
   height: auto;
   background-color: white;
   border-radius: 0 0 28px 28px;
@@ -78,22 +84,6 @@ html {
   width: 140px;
   height: 48px;
   padding: 8px;
-}
-
-.header-name div {
-  font-family: var(--font-logo);
-}
-
-.logo-text-top {
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 1;
-}
-
-.logo-text-bottom {
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1;
 }
 
 .header-nav {
@@ -111,7 +101,7 @@ html {
 .header-nav a {
   text-decoration: none;
   color: #333;
-  font-weight: 600;
+  font-weight: 510;
   font-size: 16px;
 }
 
@@ -132,10 +122,14 @@ html {
   color: #ffffff;
 }
 
+.header-burger {
+  display: none;
+}
 /* PROMO */
 
 .site-promo {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   height: auto;
   margin-bottom: 50px;
 }
@@ -203,7 +197,7 @@ html {
 
 .promo-footer p {
   font-size: 20px;
-  font-weight: 540;
+  font-weight: 590;
   color: #ffffff;
   width: 192px;
 }
@@ -248,7 +242,8 @@ html {
 /* PROGRAMS */
 
 #programs {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 60px;
 }
 
@@ -265,9 +260,19 @@ html {
   height: 553px;
 }
 
-.programs-card > p,
-h3 {
-  margin: 0;
+.programs-card img {
+  width: 315px;
+  height: 380px;
+  border-radius: 28px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.programs-card > p {
+  margin: 10px 0;
+}
+.programs-general-title {
+  margin: 10px 0;
 }
 
 .programs-card-title {
@@ -310,22 +315,30 @@ h3 {
   transform: scale(1.05);
 }
 
+.programs-swiper-buttons {
+  display: none;
+}
+
 /* BENEFITS */
 
 #benefits {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 100px;
 }
 
 .benefits-cards {
   margin-top: 10px;
+  gap: 16px;
 }
 
 .benefits-card {
-  width: 428px;
-  min-height: 366px;
+  width: 368px;
+  min-height: 306px;
   background-size: cover;
   background-position: center;
+  padding: 30px;
+  border-radius: 16px;
 }
 
 .benefits-card[data-bg='1'] {
@@ -339,7 +352,7 @@ h3 {
 }
 
 .benefits-card-logo {
-  width: 372px;
+  width: 100%;
 }
 
 .benefits-card-logo img {
@@ -352,6 +365,7 @@ h3 {
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
+  margin-top: 40px;
 }
 
 .benefits-title {
@@ -372,7 +386,8 @@ h3 {
 /* METHOD */
 
 #method {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 116px;
 }
 
@@ -506,7 +521,8 @@ h3 {
 /* TEACHERS */
 
 #teachers {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 116px;
 }
 
@@ -568,7 +584,8 @@ h3 {
 /* REVIEWS */
 
 #reviews {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 116px;
 }
 
@@ -577,13 +594,16 @@ h3 {
 }
 
 .review-card {
-  min-width: 426px;
-  height: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
   background-color: #ffffff;
   border-radius: 16px;
 }
 
 .review-card-user {
+  width: 100%;
+  box-sizing: border-box;
   padding: 27px;
 }
 
@@ -611,8 +631,9 @@ h3 {
 }
 
 .review-bg-blue {
-  width: 373px;
-  height: 128px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
   border-radius: 16px;
   background-color: #108bae;
   padding: 28px;
@@ -620,7 +641,9 @@ h3 {
 
 .review-comment {
   width: 100%;
-  height: 88px;
+  box-sizing: border-box;
+  height: auto;
+  min-height: 130px;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
@@ -649,7 +672,8 @@ h3 {
 /* FAQ */
 
 #faq {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 116px;
 }
 
@@ -670,23 +694,31 @@ h3 {
   transform: scale(1.05);
 }
 
+.faq-question-mbl {
+  display: none;
+}
+
 .faq-cards {
   gap: 24px;
 }
 
 .faq-card {
   width: 650px;
-  min-height: 78px;
+  height: auto;
   border-radius: 12px;
   background-color: #ffffff;
   cursor: pointer;
 }
 
 .faq-left {
+  width: 100%;
+  max-width: 650px;
   gap: 24px;
 }
 
 .faq-right {
+  width: 100%;
+  max-width: 650px;
   gap: 24px;
 }
 
@@ -754,7 +786,8 @@ h3 {
 }
 
 #contacts {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin-bottom: 50px;
 }
 
@@ -824,7 +857,8 @@ h3 {
 /* FOOTER */
 
 .site-footer {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
 }
 
 .footer-white {
@@ -833,16 +867,59 @@ h3 {
   padding: 30px;
 }
 
+.footer-logo img {
+  width: 140px;
+  height: 48px;
+  padding: 8px;
+}
+
 .footer-bottom {
   padding: 20px 40px 20px 40px;
   background-color: #074e62;
   border-radius: 0 0 16px 16px;
+  margin-bottom: 10px;
 }
 
 .footer-bottom p {
   color: #ffffff;
   font-size: 16px;
-  font-weight: 400px;
+  font-weight: 400;
+}
+
+.footer-nav {
+  gap: 24px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 510;
+  font-size: 16px;
+}
+
+#footer-number {
+  width: 186px;
+  height: 48px;
+  border: none;
+  border-radius: 70px;
+  background-color: #074e62;
+  font-size: 16px;
+  font-weight: 510;
+  color: #ffffff;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: #074e62;
+  background-color: transparent; /* если не нужен фон */
 }
 
 /* MODALS */

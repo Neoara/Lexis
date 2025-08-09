@@ -18,6 +18,7 @@
     <!-- Стили проекта -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/flex-utils.css" />
+    <link rel="stylesheet" href="./css/media.css" />
 
     <!-- Иконка -->
     <link rel="icon" href="./imgs/favicon.png" type="image/png" />
@@ -38,7 +39,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
-    <div class="d-flex flex-column flex-start-center">
+    <div class="site-container d-flex flex-column flex-start-center">
       <header class="main-header d-flex flex-between-center">
         <a
           class="header-logo d-flex flex-center-center"
@@ -63,6 +64,10 @@
             >+7 700 293 69 13</a
           >
         </nav>
+        <div class="header-burger">
+          <i class="burger-icon fa-solid fa-bars"></i>
+          <span class="burger-text">Меню</span>
+        </div>
       </header>
       <div class="site-promo d-flex flex-between-center">
         <img class="promo-banner" src="./imgs/promo.png" alt="Banner" />
@@ -106,51 +111,68 @@
         <p class="section-title">
           <span class="title-colored">Программы</span> обучения
         </p>
-
-        <div class="programs-cards d-flex flex-between-center">
-          <div class="programs-card d-flex flex-column flex-between-start">
-            <img src="./imgs/ielts.png" alt="Курс IELTS" />
-            <p class="programs-card-title">IELTS</p>
-            <p class="programs-card-text">
-              Для краткого описание направления, если оно нужно, если нет,
-              уберем
-            </p>
-            <button class="programs-card-button">Подробнее</button>
-          </div>
-          <div class="programs-card d-flex flex-column flex-between-start">
-            <img
-              src="./imgs/students.png"
-              alt="Курс для студентов и школьников"
-            />
-            <p class="programs-card-title">Студенты / школьники</p>
-            <p class="programs-card-text">
-              Для краткого описание направления, если оно нужно, если нет,
-              уберем
-            </p>
-            <button class="programs-card-button">Подробнее</button>
-          </div>
-          <div class="programs-card d-flex flex-column flex-between-start">
-            <img src="./imgs/general.png" alt="General English для взрослых" />
-            <div class="d-flex flex-between-end">
-              <p class="programs-card-subtitle">
-                <b class="programs-card-title">General English</b>(для взрослых)
+        <div class="swiper programs-swiper">
+          <div class="swiper-wrapper programs-cards">
+            <div
+              class="swiper-slide programs-card d-flex flex-column flex-between-start"
+            >
+              <img src="./imgs/ielts.png" alt="Курс IELTS" />
+              <p class="programs-card-title">IELTS</p>
+              <p class="programs-card-text">
+                Для краткого описание направления, если оно нужно, если нет,
+                уберем
               </p>
+              <button class="programs-card-button">Подробнее</button>
             </div>
-            <p class="programs-card-text">
-              Для краткого описание направления, если оно нужно, если нет,
-              уберем
-            </p>
-            <button class="programs-card-button">Подробнее</button>
+            <div
+              class="swiper-slide programs-card d-flex flex-column flex-between-start"
+            >
+              <img
+                src="./imgs/students.png"
+                alt="Курс для студентов и школьников"
+              />
+              <p class="programs-card-title">Студенты / школьники</p>
+              <p class="programs-card-text">
+                Для краткого описание направления, если оно нужно, если нет,
+                уберем
+              </p>
+              <button class="programs-card-button">Подробнее</button>
+            </div>
+            <div
+              class="swiper-slide programs-card d-flex flex-column flex-between-start"
+            >
+              <img
+                src="./imgs/general.png"
+                alt="General English для взрослых"
+              />
+              <div class="programs-general-title d-flex flex-between-end">
+                <p class="programs-card-subtitle">
+                  <b class="programs-card-title">General English</b>(для
+                  взрослых)
+                </p>
+              </div>
+              <p class="programs-card-text">
+                Для краткого описание направления, если оно нужно, если нет,
+                уберем
+              </p>
+              <button class="programs-card-button">Подробнее</button>
+            </div>
+            <div
+              class="swiper-slide programs-card d-flex flex-column flex-between-start"
+            >
+              <img src="./imgs/coop.png" alt="Корпоративный курс" />
+              <p class="programs-card-title">Корпоративный</p>
+              <p class="programs-card-text">
+                Для краткого описание направления, если оно нужно, если нет,
+                уберем
+              </p>
+              <button class="programs-card-button">Подробнее</button>
+            </div>
           </div>
-          <div class="programs-card d-flex flex-column flex-between-start">
-            <img src="./imgs/coop.png" alt="Корпоративный курс" />
-            <p class="programs-card-title">Корпоративный</p>
-            <p class="programs-card-text">
-              Для краткого описание направления, если оно нужно, если нет,
-              уберем
-            </p>
-            <button class="programs-card-button">Подробнее</button>
-          </div>
+        </div>
+        <div class="programs-swiper-buttons swiper-buttons">
+          <i class="fa-solid fa-circle-chevron-left programs-swiper-prev"></i>
+          <i class="fa-solid fa-circle-chevron-right programs-swiper-next"></i>
         </div>
       </section>
       <section id="benefits">
@@ -159,7 +181,7 @@
         </p>
         <div class="benefits-cards d-flex flex-between-center">
           <div
-            class="benefits-card d-flex flex-column flex-around-center"
+            class="benefits-card d-flex flex-column flex-center-center"
             data-bg="1"
           >
             <div class="benefits-card-logo d-flex flex-end-center">
@@ -176,7 +198,7 @@
             </div>
           </div>
           <div
-            class="benefits-card d-flex flex-column flex-around-center"
+            class="benefits-card d-flex flex-column flex-center-center"
             data-bg="2"
           >
             <div class="benefits-card-logo d-flex flex-end-center">
@@ -196,7 +218,7 @@
             </div>
           </div>
           <div
-            class="benefits-card d-flex flex-column flex-around-center"
+            class="benefits-card d-flex flex-column flex-center-center"
             data-bg="3"
           >
             <div class="benefits-card-logo d-flex flex-end-center">
@@ -222,80 +244,98 @@
         <p class="section-title">
           <span class="title-colored">Методика</span> обучения
         </p>
-        <div class="method-cards d-flex flex-between-center flex-wrap">
-          <div class="method-card" data-bg="1">
-            <div class="method-content-blue">
-              <p class="method-title">Разговорная практика</p>
-              <p class="method-text">
-                Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
-                всегда знаете,
-                <b>где вы находитесь и к чему двигаться дальше.</b>
-              </p>
+        <div class="swiper method-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="method-card" data-bg="1">
+                <div class="method-content-blue">
+                  <p class="method-title">Разговорная практика</p>
+                  <p class="method-text">
+                    Каждый месяц — мини-тест и обратная связь от преподавателя.
+                    Вы всегда знаете,
+                    <b>где вы находитесь и к чему двигаться дальше.</b>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="method-card" data-bg="2">
+                <div class="method-content-white">
+                  <p class="method-title">Система отслеживания</p>
+                  <p class="method-text">
+                    Каждый месяц — мини-тест и обратная связь от преподавателя.
+                    Вы всегда знаете,
+                    <b>где вы находитесь и к чему двигаться дальше.</b>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="method-card" data-bg="3">
+                <div class="method-content-blue">
+                  <p class="method-title">Современные материалы</p>
+                  <p class="method-text">
+                    Каждый месяц — мини-тест и обратная связь от преподавателя.
+                    Вы всегда знаете,
+                    <b>где вы находитесь и к чему двигаться дальше.</b>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="method-card" data-bg="4">
+                <div class="method-content-white">
+                  <p class="method-title">Коммуникативный подход</p>
+                  <p class="method-text">
+                    Каждый месяц — мини-тест и обратная связь от преподавателя.
+                    Вы всегда знаете,
+                    <b>где вы находитесь и к чему двигаться дальше.</b>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="method-card" data-bg="5">
+                <div class="method-content-blue">
+                  <p class="method-title">Мини-группы</p>
+                  <p class="method-text">
+                    Каждый месяц — мини-тест и обратная связь от преподавателя.
+                    Вы всегда знаете,
+                    <b>где вы находитесь и к чему двигаться дальше.</b>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="method-card" data-bg="6">
+                <div class="method-content-white">
+                  <p class="method-title">Адаптация под цели</p>
+                  <p class="method-text">
+                    Каждый месяц — мини-тест и обратная связь от преподавателя.
+                    Вы всегда знаете,
+                    <b>где вы находитесь и к чему двигаться дальше.</b>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="method-card" data-bg="2">
-            <div class="method-content-white">
-              <p class="method-title">Система отслеживания</p>
-              <p class="method-text">
-                Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
-                всегда знаете,
-                <b>где вы находитесь и к чему двигаться дальше.</b>
-              </p>
-            </div>
-          </div>
-          <div class="method-card" data-bg="3">
-            <div class="method-content-blue">
-              <p class="method-title">Современные материалы</p>
-              <p class="method-text">
-                Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
-                всегда знаете,
-                <b>где вы находитесь и к чему двигаться дальше.</b>
-              </p>
-            </div>
-          </div>
-          <div class="method-card" data-bg="4">
-            <div class="method-content-white">
-              <p class="method-title">Коммуникативный подход</p>
-              <p class="method-text">
-                Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
-                всегда знаете,
-                <b>где вы находитесь и к чему двигаться дальше.</b>
-              </p>
-            </div>
-          </div>
-          <div class="method-card" data-bg="5">
-            <div class="method-content-blue">
-              <p class="method-title">Мини-группы</p>
-              <p class="method-text">
-                Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
-                всегда знаете,
-                <b>где вы находитесь и к чему двигаться дальше.</b>
-              </p>
-            </div>
-          </div>
-          <div class="method-card" data-bg="6">
-            <div class="method-content-white">
-              <p class="method-title">Адаптация под цели</p>
-              <p class="method-text">
-                Каждый месяц — мини-тест и обратная связь от преподавателя. Вы
-                всегда знаете,
-                <b>где вы находитесь и к чему двигаться дальше.</b>
-              </p>
-            </div>
-          </div>
+        </div>
+        <div class="programs-swiper-buttons swiper-buttons">
+          <i class="fa-solid fa-circle-chevron-left method-swiper-prev"></i>
+          <i class="fa-solid fa-circle-chevron-right method-swiper-next"></i>
         </div>
       </section>
       <section id="teachers">
         <div class="section-title-swiper d-flex flex-between-center">
           <p>Преподаватели</p>
-          <div class="swiper-buttons d-flex flex-center-center">
+          <div class="buttons-top swiper-buttons">
             <i class="fa-solid fa-circle-chevron-left teachers-custom-prev"></i>
             <i
               class="fa-solid fa-circle-chevron-right teachers-custom-next"
             ></i>
           </div>
         </div>
-        <div class="swiper swiper-teachers">
+        <div class="swiper teachers-cards">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="teacher-card">
@@ -359,34 +399,23 @@
             </div>
           </div>
         </div>
+        <div class="buttons-bottom swiper-buttons">
+          <i class="fa-solid fa-circle-chevron-left teachers-custom-prev"></i>
+          <i class="fa-solid fa-circle-chevron-right teachers-custom-next"></i>
+        </div>
       </section>
       <section id="reviews">
         <div class="section-title-swiper d-flex flex-between-center">
           <p>Отзывы</p>
-          <div class="swiper-buttons d-flex flex-center-center">
+          <div class="swiper-buttons buttons-top">
             <i class="fa-solid fa-circle-chevron-left reviews-custom-prev"></i>
             <i class="fa-solid fa-circle-chevron-right reviews-custom-next"></i>
           </div>
         </div>
-        <div class="reviews-cards">
-          <div class="swiper swiper-reviews">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide review-card">
-                <div class="review-card-user d-flex flex-start-center">
-                  <img src="./imgs/teacher-1.png" alt="Учитель 1" />
-                  <div>
-                    <p class="review-name">Данияр</p>
-                    <p class="review-level">уровень A2 → B1</p>
-                  </div>
-                </div>
-                <div class="review-bg-blue d-flex flex-center-center">
-                  <p class="review-comment">
-                    Учил для работы, но в итоге начал смотреть сериалы без
-                    субтитров. Методика — огонь!
-                  </p>
-                </div>
-              </div>
-              <div class="swiper-slide review-card">
+        <div class="swiper reviews-cards">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="review-card">
                 <div class="review-card-user d-flex flex-start-center">
                   <img src="./imgs/teacher-3.png" alt="Учитель 2" />
                   <div>
@@ -401,12 +430,14 @@
                   </p>
                 </div>
               </div>
-              <div class="swiper-slide review-card">
+            </div>
+            <div class="swiper-slide">
+              <div class="review-card">
                 <div class="review-card-user d-flex flex-start-center">
-                  <img src="./imgs/teacher-2.png" alt="Учитель 3" />
+                  <img src="./imgs/teacher-1.png" alt="Учитель 2" />
                   <div>
-                    <p class="review-name">Марк</p>
-                    <p class="review-level">уровень С2 → B1</p>
+                    <p class="review-name">Алия</p>
+                    <p class="review-level">уровень A1 → А2</p>
                   </div>
                 </div>
                 <div class="review-bg-blue d-flex flex-center-center">
@@ -417,27 +448,31 @@
                   </p>
                 </div>
               </div>
-              <div class="swiper-slide review-card">
+            </div>
+            <div class="swiper-slide">
+              <div class="review-card">
                 <div class="review-card-user d-flex flex-start-center">
-                  <img src="./imgs/teacher-3.png" alt="Учитель 4" />
+                  <img src="./imgs/teacher-2.png" alt="Учитель 2" />
                   <div>
-                    <p class="review-name">Лия</p>
-                    <p class="review-level">уровень В2 → С1</p>
+                    <p class="review-name">Куаныш</p>
+                    <p class="review-level">уровень В2 → С2</p>
                   </div>
                 </div>
                 <div class="review-bg-blue d-flex flex-center-center">
                   <p class="review-comment">
-                    Учил для работы, но в итоге начал смотреть сериалы без
-                    субтитров. Методика — огонь!
+                    Очень уютная школа и сильные преподаватели. Каждое занятие
+                    проходило на одном дыхании!
                   </p>
                 </div>
               </div>
-              <div class="swiper-slide review-card">
+            </div>
+            <div class="swiper-slide">
+              <div class="review-card">
                 <div class="review-card-user d-flex flex-start-center">
-                  <img src="./imgs/teacher-1.png" alt="Учитель 5" />
+                  <img src="./imgs/teacher-4.png" alt="Учитель 2" />
                   <div>
                     <p class="review-name">Данияр</p>
-                    <p class="review-level">уровень A2 → B1</p>
+                    <p class="review-level">уровень В1 → B2</p>
                   </div>
                 </div>
                 <div class="review-bg-blue d-flex flex-center-center">
@@ -450,10 +485,16 @@
             </div>
           </div>
         </div>
+        <div class="swiper-buttons buttons-bottom">
+          <i class="fa-solid fa-circle-chevron-left reviews-custom-prev"></i>
+          <i class="fa-solid fa-circle-chevron-right reviews-custom-next"></i>
+        </div>
       </section>
       <section id="faq">
         <div class="section-title d-flex flex-between-center">
-          <div class="section-title-swiper d-flex flex-between-center">
+          <div
+            class="section-title-swiper d-flex flex-between-center flex-wrap"
+          >
             <p class="section-title">
               <span style="color: #1f1f1f">Часто задаваемые</span> вопросы
             </p>
@@ -465,7 +506,7 @@
             <div class="faq-card">
               <div class="faq-question d-flex flex-between-center">
                 <p>С какого уровня можно начать обучение?</p>
-                <button class="faq-toggle d-flex flex-center-center">
+                <button class="faq-toggle">
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
@@ -532,6 +573,7 @@
             </div>
           </div>
         </div>
+        <button class="faq-question-mbl">Задать вопрос</button>
       </section>
       <section id="contacts" class="d-flex flex-between-start">
         <div class="contact-bg">
@@ -583,12 +625,12 @@
       <footer class="site-footer">
         <div class="footer-white d-flex flex-between-center">
           <a
-            class="header-logo d-flex flex-center-center"
+            class="footer-logo d-flex flex-center-center"
             href="https://lexis-iota.vercel.app/"
           >
             <img src="./imgs/header-logo.png" alt="Логотип Lexis Academy" />
           </a>
-          <nav class="header-nav d-flex flex-between-center">
+          <nav class="footer-nav d-flex flex-between-center">
             <ul>
               <li><a href="#programs">Программы</a></li>
               <li><a href="#benefits">Преимущества</a></li>
@@ -599,7 +641,7 @@
               <li><a href="#contacts">Контакты</a></li>
             </ul>
             <a
-              id="header-number"
+              id="footer-number"
               class="d-flex flex-center-center"
               href="tel:+77002936913"
               >+7 700 293 69 13</a
@@ -611,33 +653,98 @@
           <p>Пользовательское соглашение</p>
         </div>
       </footer>
-      <div class="hover-overlay"></div>
+      <!-- <div class="hover-overlay"></div> -->
     </div>
   </body>
 
   <!-- Инициализация swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper('.swiper-teachers', {
+    const swiperPrograms = new Swiper('.programs-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.programs-swiper-next',
+        prevEl: '.programs-swiper-prev',
+      },
+      breakpoints: {
+        769: {
+          // от 769px и выше
+          slidesPerView: 4,
+          spaceBetween: 16,
+        },
+      },
+    });
+  </script>
+  <script>
+    const swiper = new Swiper('.teachers-cards', {
       loop: true, // можно включить true если нужна бесконечность
-      slidesPerView: 4,
+      slidesPerView: 1,
       slidesPerGroup: 1,
       spaceBetween: 16,
       navigation: {
         nextEl: '.teachers-custom-next',
         prevEl: '.teachers-custom-prev',
       },
+      breakpoints: {
+        769: {
+          slidesPerView: 4,
+          spaceBetween: 16,
+          slidesPerGroup: 1,
+        },
+      },
     });
   </script>
   <script>
-    const swiper2 = new Swiper('.swiper-reviews', {
+    const swiperReviews = new Swiper('.reviews-cards', {
       loop: true, // можно включить true если нужна бесконечность
-      slidesPerView: 3,
-      slidesPerGroup: 1,
+      slidesPerView: 1,
       spaceBetween: 16,
       navigation: {
         nextEl: '.reviews-custom-next',
         prevEl: '.reviews-custom-prev',
+      },
+      breakpoints: {
+        769: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+        },
+      },
+    });
+  </script>
+
+  <script>
+    const methodSwiper = new Swiper('.method-swiper', {
+      // mobile (по умолчанию)
+      slidesPerView: 1,
+      spaceBetween: 16,
+      slidesPerGroup: 1,
+      grid: {
+        rows: 1,
+        fill: 'row',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.method-swiper-next',
+        prevEl: '.method-swiper-prev',
+      },
+      breakpoints: {
+        769: {
+          slidesPerView: 3,
+          spaceBetween: 16,
+          slidesPerGroup: 6,
+          grid: {
+            rows: 2,
+            fill: 'row',
+          },
+        },
       },
     });
   </script>
@@ -678,7 +785,7 @@
   </script>
 
   <!-- Модальное окно бесплатного занятия -->
-  <script>
+  <!-- <script>
     function openForm() {
       Swal.fire({
         title: '<p class="lesson-modal-title">БЕСПЛАТНОЕ ЗАНЯТИЕ</p>',
@@ -745,5 +852,5 @@
         }
       });
     }
-  </script>
+  </script> -->
 </html>
