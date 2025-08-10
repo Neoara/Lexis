@@ -108,7 +108,7 @@ html {
 .header-nav a:hover,
 .header-nav a:focus {
   color: #074e62;
-  background-color: transparent; /* если не нужен фон */
+  background-color: transparent;
 }
 
 #header-number {
@@ -1010,4 +1010,19 @@ html {
 
 .hidden {
   display: none;
+}
+
+.swal2-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.course-modal-title {
+  margin: 0;
+}
+
+.teacher-modal-title {
+  margin: 0;
 }

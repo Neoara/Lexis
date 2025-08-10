@@ -1,4 +1,7 @@
 @media (max-width: 576px) {
+  .site-container {
+    margin: 0 10px;
+  }
   .section-title {
     font-size: 40px;
   }
@@ -428,7 +431,6 @@
   .menu {
     position: absolute;
     top: 50px;
-    left: 0;
     z-index: 1001;
     margin: 0 50px;
     background: white;
@@ -487,5 +489,58 @@
     font-weight: 510;
     color: #ffffff;
     text-transform: uppercase;
+  }
+  /* DELETE HOVER */
+  .promo-btn:hover {
+    transform: none;
+  }
+  .programs-card-button:hover {
+    transform: none;
+  }
+  .teachers-custom-next:hover {
+    transform: none;
+  }
+  .teachers-custom-prev:hover {
+    transform: none;
+  }
+  .teacher-button:hover {
+    transform: none;
+  }
+  .reviews-custom-next:hover {
+    transform: none;
+  }
+  .reviews-custom-prev:hover {
+    transform: none;
+  }
+  .faq-button-question:hover {
+    transform: none;
+  }
+  /* DELETE CURSOR */
+  .swiper-buttons > i {
+    cursor: default;
+  }
+  .contact-list a {
+    cursor: default;
+  }
+  .promo-btn {
+    cursor: default;
+  }
+  .programs-card-button {
+    cursor: default;
+  }
+  .method-card {
+    cursor: default;
+  }
+  .teacher-button {
+    cursor: default;
+  }
+  .faq-button-question {
+    cursor: default;
+  }
+  .faq-button-question {
+    cursor: default;
+  }
+  .faq-card {
+    cursor: default;
   }
 }

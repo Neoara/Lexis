@@ -573,7 +573,9 @@
             </div>
           </div>
         </div>
-        <button class="faq-question-mbl">Задать вопрос</button>
+        <button class="faq-question-mbl faq-button-question">
+          Задать вопрос
+        </button>
       </section>
       <section id="contacts" class="d-flex flex-between-start">
         <div class="contact-bg">
@@ -735,7 +737,6 @@
       },
     });
   </script>
-
   <script>
     const methodSwiper = new Swiper('.method-swiper', {
       // mobile (по умолчанию)
@@ -809,15 +810,15 @@
       Swal.fire({
         title: '<p class="lesson-modal-title">БЕСПЛАТНОЕ ЗАНЯТИЕ</p>',
         html: `
-        <form id="lesson-form" class="swal-form">
-          <p class="lesson-modal-subtitle">
-            Оставьте заявку, наш менеджер свяжется<br> с вами в ближайшее время
-          </p>
-          <input name="name" class="swal2-input" placeholder="Имя" required>
-          <input name="age" class="swal2-input" placeholder="Возраст" required>
-          <input name="phone" class="swal2-input" placeholder="Номер телефона" required>
-        </form>
-      `,
+                <form id="lesson-form" class="swal-form">
+                  <p class="lesson-modal-subtitle">
+                    Оставьте заявку, наш менеджер свяжется<br> с вами в ближайшее время
+                  </p>
+                  <input name="name" class="swal2-input" placeholder="Имя" required>
+                  <input name="age" class="swal2-input" placeholder="Возраст" required>
+                  <input name="phone" class="swal2-input" placeholder="Номер телефона" required>
+                </form>
+              `,
         showCancelButton: false,
         showCloseButton: true, // крестик
         confirmButtonText: '<p class="confirm-button">ОСТАВИТЬ ЗАЯВКУ</p>',
@@ -868,6 +869,197 @@
         }
       });
     }
+  </script>
+  <script>
+    document.querySelectorAll('.faq-button-question').forEach(button => {
+      button.addEventListener('click', openFaqModal);
+    });
+
+    function openFaqModal() {
+      Swal.fire({
+        title: '<p class="lesson-modal-title">ЗАДАТЬ ВОПРОС</p>',
+        html: `
+                <form id="faq-form" class="swal-form">
+                  <p class="lesson-modal-subtitle">
+                    Напишите ваш вопрос, и мы ответим вам в ближайшее время
+                  </p>
+                  <textarea name="question" class="swal2-textarea" placeholder="Ваш вопрос..." required></textarea>
+                </form>
+              `,
+        showCancelButton: false,
+        showCloseButton: true,
+        confirmButtonText: '<p class="confirm-button">ОТПРАВИТЬ</p>',
+        confirmButtonColor: '#0796b9',
+        customClass: {
+          popup: 'rounded-modal',
+          closeButton: 'custom-close-btn',
+          container: 'blurred-container',
+        },
+        preConfirm: () => {
+          const form = document.getElementById('faq-form');
+          const formData = new FormData(form);
+
+          const question = formData.get('question').trim();
+          if (!question) {
+            Swal.showValidationMessage('Введите ваш вопрос');
+            return false;
+          }
+
+          return { question };
+        },
+      }).then(result => {
+        if (result.isConfirmed) {
+          console.log('Вопрос отправлен:', result.value);
+          Swal.fire('Спасибо!', 'Ваш вопрос отправлен', 'success');
+        }
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll('.programs-card-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.programs-card');
+
+        // Берём данные из карточки
+        const title =
+          card.querySelector('.programs-card-title')?.textContent.trim() || '';
+        const text = card.querySelector('.programs-card-text')?.innerHTML || '';
+
+        Swal.fire({
+          title: `<p class="course-modal-title">${title}</p>`,
+          html: `
+                  <div class="course-modal-content">
+                    <p class="course-subtitle">${text}</p>
+                    <ul class="course-benefits">
+                      <li>📚 Индивидуальная программа под ваши задачи</li>
+                      <li>🕒 Гибкий график занятий</li>
+                      <li>🎯 Практика бизнес-лексики</li>
+                      <li>💼 Повышение навыков деловой коммуникации</li>
+                    </ul>
+                    <p class="course-format">
+                      <b>Длительность:</b> 3 месяца<br>
+                      <b>Формат:</b> онлайн / офлайн
+                    </p>
+                  </div>
+                `,
+          showCancelButton: false,
+          showCloseButton: true,
+          confirmButtonText: '<p class="confirm-button">Записаться</p>',
+          confirmButtonColor: '#0796b9',
+          customClass: {
+            popup: 'rounded-modal',
+            closeButton: 'custom-close-btn',
+            container: 'blurred-container',
+          },
+        }).then(result => {
+          if (result.isConfirmed) {
+            openForm(title); // передаём название курса в форму
+          }
+        });
+      });
+    });
+
+    function openForm(courseName = '') {
+      Swal.fire({
+        title: '<p class="lesson-modal-title">БЕСПЛАТНОЕ ЗАНЯТИЕ</p>',
+        html: `
+      <form id="lesson-form" class="swal-form">
+        <p class="lesson-modal-subtitle">
+          Оставьте заявку на курс <b>${courseName}</b>, наш менеджер свяжется<br> с вами в ближайшее время
+        </p>
+        <input name="name" class="swal2-input" placeholder="Имя" required>
+        <input name="age" class="swal2-input" placeholder="Возраст" required>
+        <input name="phone" class="swal2-input" placeholder="Номер телефона" required>
+      </form>
+    `,
+        showCancelButton: false,
+        showCloseButton: true,
+        confirmButtonText: '<p class="confirm-button">ОСТАВИТЬ ЗАЯВКУ</p>',
+        confirmButtonColor: '#0796b9',
+        customClass: {
+          popup: 'rounded-modal',
+          closeButton: 'custom-close-btn',
+          container: 'blurred-container',
+        },
+        preConfirm: () => {
+          const form = document.getElementById('lesson-form');
+          const formData = new FormData(form);
+
+          const name = formData.get('name').trim();
+          const age = formData.get('age').trim();
+          const phone = formData.get('phone').trim();
+
+          if (!name || !age || !phone) {
+            Swal.showValidationMessage('Заполните все поля');
+            return false;
+          }
+
+          const digits = phone.replace(/\D/g, '');
+          const valid =
+            digits.length === 11 &&
+            (digits.startsWith('7') || digits.startsWith('8'));
+
+          if (!valid) {
+            Swal.showValidationMessage(
+              'Введите корректный номер, например +7 700 293 69 13'
+            );
+            return false;
+          }
+
+          let normalized;
+          if (digits.startsWith('7')) {
+            normalized = '+' + digits;
+          } else {
+            normalized = '+7' + digits.slice(1);
+          }
+
+          return { name, age, phone: normalized, course: courseName };
+        },
+      }).then(result => {
+        if (result.isConfirmed) {
+          console.log(result.value);
+          Swal.fire('Спасибо!', 'Мы скоро с вами свяжемся', 'success');
+        }
+      });
+    }
+  </script>
+  <script>
+    document.querySelectorAll('.teacher-button').forEach(button => {
+      button.addEventListener('click', function () {
+        const card = this.closest('.teacher-card');
+        const name = card.querySelector('.teacher-name').textContent;
+        const info = card.querySelector('.teacher-info').textContent;
+        const imgSrc = card.querySelector('img').getAttribute('src');
+        const imgAlt = card.querySelector('img').getAttribute('alt');
+
+        Swal.fire({
+          title: `<p class="teacher-modal-title">${name}</p>`,
+          html: `
+                  <div class="teacher-modal-content">
+                    <img src="${imgSrc}" alt="${imgAlt}" class="teacher-modal-img" />
+                    <p class="teacher-modal-info">${info}</p>
+                    <div class="teacher-certificates">
+                      <h4>Сертификаты</h4>
+                      <ul>
+                        <li>CELTA (Certificate in English Language Teaching to Adults)</li>
+                        <li>TESOL (Teaching English to Speakers of Other Languages)</li>
+                        <li>IELTS Academic 8.5</li>
+                      </ul>
+                    </div>
+                  </div>
+                `,
+          showCancelButton: false,
+          showCloseButton: true,
+          confirmButtonText: '<p class="confirm-button">Закрыть</p>',
+          confirmButtonColor: '#0796b9',
+          customClass: {
+            popup: 'rounded-modal',
+            closeButton: 'custom-close-btn',
+            container: 'blurred-container',
+          },
+        });
+      });
+    });
   </script>
 
   <!-- Логика бургера -->
